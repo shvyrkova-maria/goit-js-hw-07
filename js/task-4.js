@@ -6,23 +6,19 @@
 
 const refs = {
   decrementBtn: document.querySelector("#counter button"),
-  // incrementBtn: document.querySelector(),
+  incrementBtn: document.querySelector("#value ~ button"),
   value: document.querySelector("#value"),
 };
 
-let counterValue = refs.value.textContent;
+let counterValue = Number(refs.value.textContent);
 
-// function decrement() {
-//   return (counterValue += 1);
-// }
+refs.decrementBtn.addEventListener("click", onDecrementClick);
+refs.incrementBtn.addEventListener("click", onIncrementClick);
 
-// function increment() {
-//   return (counterValue -= 1);
-// }
+function onDecrementClick() {
+  return (refs.value.textContent = counterValue -= 1);
+}
 
-refs.decrementBtn.addEventListener("click", () => {
-  return (counterValue += 1);
-});
-refs.incrementBtn.addEventListener("click", () => {
-  return (counterValue -= 1);
-});
+function onIncrementClick() {
+  return (refs.value.textContent = counterValue += 1);
+}
