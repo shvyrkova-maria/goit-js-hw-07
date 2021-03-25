@@ -7,38 +7,38 @@ const refs = {
 
 refs.number.setAttribute("value", "0");
 
-//==================================================================//
-let inputValue = Number(refs.number.textContent);
-console.log(refs.render.addEventListener("input", onInputChange));
+refs.number.addEventListener("input", onInputChange);
+refs.render.addEventListener("click", onRenderBtnClick);
+refs.destroy.addEventListener("click", onDestroyBtnClick);
 
 function onInputChange(event) {
-  return (refs.number.textContent = refs.number.value);
+  return Number(event.currentTarget.value);
 }
-console.log(onInputChange());
-// const createBoxsMarkup = () => `<div class="box"></div>`; // или
-const createBoxsMarkup = () =>
-  `<div class="box" style = "color: ${makeRandomColor()}; width: 30px; height: 30px" ></div>`;
 
-// const newBox = document.querySelectorAll(".box");
-// newBox.style.width = "30px";
-// newBox.style.height = "30px";
-// newBox.style.color = makeRandomColor();
-
-// const makeBoxes = [].map(createBoxsMarkup).join("");
-// refs.boxes.insertAdjacentHTML("afterbegin", makeBoxes);
+function onRenderBtnClick() {
+  refs.boxes.insertAdjacentHTML("afterbegin", createBoxes(refs.number.value));
+}
 
 function onDestroyBtnClick() {
-  //   return parent.removeChild(elem);
+  refs.number.value = 0;
+  while (refs.boxes.firstChild) {
+    refs.boxes.removeChild(refs.boxes.firstChild);
+  }
+}
+
+function createBoxsMarkup() {
+  return `<div class="box" style = "background-color: ${makeRandomColor()};  width:
+  30px; height: 30px";" ></div>`;
 }
 
 function createBoxes(amount) {
   let newBoxes = [];
-  newBoxes.length = amount; //длина массива, amount - это значение инпута
-  console.log(newBoxes.map(createBoxsMarkup));
-  return newBoxes.map(createBoxsMarkup).join("");
+  newBoxes.length = amount;
+  for (let i = 0; i < newBoxes.length; i++) {
+    newBoxes[i] = createBoxsMarkup();
+  }
+  return newBoxes.join("");
 }
-console.log(refs.boxes.insertAdjacentHTML("afterbegin", createBoxes(9)));
-// refs.boxes.insertAdjacentHTML("afterbegin", newBoxes);
 
 function makeRandomColor() {
   const r = Math.floor(Math.random() * 256);
@@ -46,4 +46,5 @@ function makeRandomColor() {
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r},${g},${b})`;
 }
-// console.log(makeRandomColor());
+
+//==================================================================//

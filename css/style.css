@@ -126,3 +126,9 @@ span#value {
 #validation-input.invalid {
   border-color: #f44336;
 }
+/* task 8*/
+
+div#controls {
+  padding: 20px;
+  text-align: center;
+}
