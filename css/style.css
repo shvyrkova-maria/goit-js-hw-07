@@ -52,30 +52,31 @@ ul#categories {
   padding: 0 20px;
 }
 
-/* task 2 */
+/* task 3 */
 
 .gallery {
-  list-style: none;
-  padding: 10px;
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  /* max-width: 1200px; */
 
-  /* display: flex;
-  flex-wrap: wrap;
-  margin: -10px; */
+  margin: auto;
+  padding: 15px;
+  list-style: none;
 }
 
-/* .gallery-card {
-  flex-basis: calc((100% - 60px) / 3);
-  margin: 10px;
-} */
+.gallery-card {
+  max-width: 380px;
+}
+
 .gallery-card:not(:last-child) {
-  padding-bottom: 10px;
+  margin-right: 15px;
 }
 
 .gallery-img {
   display: block;
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* task 4 */
@@ -112,6 +113,10 @@ span#value {
 .input-wrap > h1 {
   padding-top: 20px;
   text-align: center;
+}
+#name-input:hover,
+#name-input:focus {
+  border-color: #ff6b08;
 }
 
 /* task 6 */

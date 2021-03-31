@@ -26,16 +26,16 @@ function onDestroyBtnClick() {
   }
 }
 
-function createBoxsMarkup() {
-  return `<div class="box" style = "background-color: ${makeRandomColor()};  width:
-  30px; height: 30px";" ></div>`;
-}
-
 function createBoxes(amount) {
   let newBoxes = [];
   newBoxes.length = amount;
+  let sizeValue = 30;
   for (let i = 0; i < newBoxes.length; i++) {
-    newBoxes[i] = createBoxsMarkup();
+    newBoxes[
+      i
+    ] = `<div class="box" style = "background-color: ${makeRandomColor()};  width:
+  ${sizeValue}px; height: ${sizeValue}px";" ></div>`;
+    sizeValue += 10;
   }
   return newBoxes.join("");
 }
@@ -46,5 +46,3 @@ function makeRandomColor() {
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r},${g},${b})`;
 }
-
-//==================================================================//
