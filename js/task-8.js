@@ -21,9 +21,7 @@ function onRenderBtnClick() {
 
 function onDestroyBtnClick() {
   refs.number.value = 0;
-  while (refs.boxes.firstChild) {
-    refs.boxes.removeChild(refs.boxes.firstChild);
-  }
+  refs.boxes.innerHTML = "";
 }
 
 function createBoxes(amount) {
